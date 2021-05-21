@@ -13,5 +13,8 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module'
   },
-  rules: {}
+  rules: {
+    'no-useless-constructor': 'off',
+    '@typescript-eslint/no-useless-constructor': ['error']
+  }
 }

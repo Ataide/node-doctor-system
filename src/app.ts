@@ -3,6 +3,7 @@ import 'reflect-metadata'
 import './database/connect'
 import express from 'express'
 import cors from 'cors'
+import { DoctorRoutes } from './features/doctors/DoctorRoutes'
 
 class App {
   public express: express.Application
@@ -21,10 +22,11 @@ class App {
   private routes (): void {
     this.express.get('/', (request, response) => {
       return response.json({
-        Message: process.env.POSTGRES_HOST
+        message: 'Rota Principal'
       })
-    }
-    )
+    })
+
+    this.express.use(DoctorRoutes)
   }
 }
 

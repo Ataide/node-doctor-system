@@ -2,11 +2,11 @@
     "type": "postgres",
     "host": "localhost",
     "port": 5432,
-    "username": "sas",
-    "password": "sas-password",
-    "database": "sas",    
+    "username": "me",
+    "password": "password",
+    "database": "doctor-api",    
     "entities": [
-      "src/entities/*.js"
+      "src/entities/*.ts"
     ],
     "migrations": [
       "src/database/migrations/*.ts"

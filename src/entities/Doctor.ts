@@ -2,12 +2,30 @@ import { Column, Entity, PrimaryColumn } from 'typeorm'
 import { uuid } from 'uuidv4'
 
 @Entity('doctors')
-export class Doctor {
+class Doctor {
   @PrimaryColumn()
-  public id: string;
+  public readonly id: string
 
   @Column()
-  public name: string;
+  public name: string
+
+  @Column()
+  public crm: string
+
+  @Column()
+  public phone: string
+
+  @Column()
+  public cel: string
+
+  @Column()
+  public zipcode: string
+
+  @Column()
+  public address: string
+
+  @Column()
+  public specialties: string
 
   constructor (props: Omit<Doctor, 'id'>, id?: string) {
     Object.assign(this, props)
@@ -16,3 +34,5 @@ export class Doctor {
     }
   }
 }
+
+export default Doctor
