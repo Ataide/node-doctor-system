@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from 'typeorm'
 import { uuid } from 'uuidv4'
 
 @Entity('users')
@@ -9,11 +9,17 @@ export class User {
   @Column()
   public name:string;
 
-  @Column()
+  @Column({ unique: true })
   public email:string;
 
   @Column()
   public password:string;
+
+  @CreateDateColumn()
+  public createdAt: Date;
+
+  @UpdateDateColumn()
+  public updatedAt: Date;
 
   constructor (props: Omit<User, 'id'>, id?: string) {
     Object.assign(this, props)

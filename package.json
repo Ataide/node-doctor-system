@@ -6,30 +6,39 @@
   "scripts": {
     "start": "nodemon src/server.ts",
     "build": "sucrase ./src -d ./dist --transforms typescript,imports",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
+    "test": "jest"
   },
   "devDependencies": {
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.23",
+    "@types/morgan": "^1.9.2",
     "@types/pg": "^7.14.11",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "eslint": "^7.26.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.23.0",
+    "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
     "eslint-plugin-typeorm": "^0.0.19",
+    "jest": "^27.0.1",
     "nodemon": "^2.0.7",
     "sucrase": "^3.18.1",
+    "supertest": "^6.1.3",
+    "ts-jest": "^27.0.1",
     "ts-node-dev": "^1.1.6",
     "typescript": "^4.2.4"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^9.0.2",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "pg": "^8.6.0",
+    "sqlite3": "^5.0.2",
     "typeorm": "^0.2.32",
     "uuidv4": "^6.2.8",
     "yup": "^0.32.9"
