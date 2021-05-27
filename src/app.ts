@@ -3,7 +3,7 @@ import 'reflect-metadata'
 import './database/connect'
 import express from 'express'
 import cors from 'cors'
-import { DoctorRoutes } from './features/doctors/DoctorRoutes'
+import { DoctorRoutes } from './features/doctors/doctorRoutes'
 
 class App {
   public express: express.Application

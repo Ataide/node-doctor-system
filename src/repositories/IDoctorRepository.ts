@@ -4,5 +4,6 @@ export interface IDoctorRepository {
 
   list(): Promise<Doctor[]>
   create(doctor: Doctor): Promise<void>
+  findOne(doctor: Doctor): Promise<Doctor>
 
 }

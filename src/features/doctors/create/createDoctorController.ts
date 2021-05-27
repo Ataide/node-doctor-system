@@ -11,7 +11,7 @@ export class CreateDoctorController {
     const data = request.body
 
     try {
-      this.createDoctor.execute(data)
+      await this.createDoctor.execute(data)
       return response.status(200).send('Sucess')
     } catch (error) {
       return response.status(400).json({
