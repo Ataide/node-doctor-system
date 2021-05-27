@@ -16,6 +16,7 @@ module.exports = {
   },
   rules: {
     'no-useless-constructor': 'off',
-    '@typescript-eslint/no-useless-constructor': ['error']
+    '@typescript-eslint/no-useless-constructor': ['error'],
+    'jest/expect-expect': 'off'
   }
 }

@@ -1,9 +1,8 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
-import { uuid } from 'uuidv4'
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity('doctors')
 class Doctor {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   public readonly id: string
 
   @Column()
@@ -27,11 +26,8 @@ class Doctor {
   @Column()
   public specialties: string
 
-  constructor (props: Omit<Doctor, 'id'>, id?: string) {
+  constructor (props: Omit<Doctor, 'id'>) {
     Object.assign(this, props)
-    if (!id) {
-      this.id = uuid()
-    }
   }
 }
 
