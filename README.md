@@ -3,10 +3,10 @@ API - Cadastro de Médicos.
 
 Desenvolver um sistema que faça a gestão de cadastros de médicos. O Sistema deve suportar as seguintes operações:
 
-- Insert
-- Update
-- Select
-- Soft Delete
+- [ ] Insert
+- [ ] Update
+- [ ] Select
+- [ ] Soft Delete
 
 # No cadastro do médico, devem ser cadastrados os seguintes itens:
 
