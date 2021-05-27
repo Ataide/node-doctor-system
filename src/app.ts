@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import 'reflect-metadata'
-import './database/connect'
 import express from 'express'
+import morgan from 'morgan'
 import cors from 'cors'
 import { DoctorRoutes } from './features/doctors/doctorRoutes'
 
@@ -15,6 +15,7 @@ class App {
   }
 
   private middleware (): void {
+    this.express.use(morgan('tiny'))
     this.express.use(express.json())
     this.express.use(cors())
   }

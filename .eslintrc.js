@@ -4,9 +4,10 @@ module.exports = {
     es2021: true,
     node: true
   },
-  plugins: ['@typescript-eslint', 'typeorm'],
+  plugins: ['@typescript-eslint', 'typeorm', 'jest'],
   extends: [
     'plugin:@typescript-eslint/recommended',
+    'plugin:jest/recommended',
     'standard'
   ],
   parserOptions: {
