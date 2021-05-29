@@ -7,13 +7,12 @@ export class FindOneDoctorController {
   ) {}
 
   async handler (request: Request, response:Response): Promise<Response> {
-    const data = request.body()
-
     try {
-      const doctor = await this.findOneDoctor.execute(data)
+      const id = parseInt(request.params.id)
+      const doctor = await this.findOneDoctor.execute(id)
       return response.json(doctor)
     } catch (error) {
-      return response.status(204).send(error.message)
+      return response.status(400).send(error.message)
     }
   }
 }

@@ -6,8 +6,8 @@ export class FindOneDoctor {
     private _doctorRepository: IDoctorRepository
   ) {}
 
-  async execute (doctor: Doctor): Promise<Doctor> {
-    const result = await this._doctorRepository.findOne(doctor)
+  async execute (id: number): Promise<Doctor> {
+    const result = await this._doctorRepository.findOne(id)
     return result
   }
 }

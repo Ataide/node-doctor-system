@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from 'typeorm'
+import Expertise from './Expertise'
 
 @Entity('doctors')
 class Doctor {
@@ -23,8 +24,9 @@ class Doctor {
   @Column()
   public address: string
 
-  @Column()
-  public specialties: string
+  @ManyToMany(() => Expertise)
+  @JoinTable()
+  public expertises: Expertise[]
 
   constructor (props: Omit<Doctor, 'id'>) {
     Object.assign(this, props)

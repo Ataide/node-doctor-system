@@ -15,7 +15,7 @@ Desenvolver um sistema que faça a gestão de cadastros de médicos. O Sistema d
 - [ x ] Telefone fixo
 - [ x ] Telefone celular
 - [ x ] CEP: formato XXXXX-XX (Ao cadastrar o CEP, deve ser feita uma reqisição via XHR para a API dos correios e retornar todos os dados de endereço do cliente).
-- [ ] Especialidade médica (mínimo de duas especialidades)
+- [ x ] Especialidade médica (mínimo de duas especialidades)
 
 # Itens importantes:
 - Se possivel realizar pesquisas por todos os campos do cadastro do médico, incluindo o endereço

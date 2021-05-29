@@ -1,3 +1,5 @@
+import Expertise from '../../entities/Expertise'
+
 export interface IDoctorDTO {
   name: string
   crm: string
@@ -5,6 +7,7 @@ export interface IDoctorDTO {
   cel: string
   zipcode: string
   address: string
-  specialties: string
+  expertisesNames: string[]
+  expertises: Expertise[]
 
 }

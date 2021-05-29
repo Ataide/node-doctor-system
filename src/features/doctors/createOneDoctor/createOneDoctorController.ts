@@ -1,18 +1,17 @@
 /* eslint-disable no-useless-constructor */
 import { Request, Response } from 'express'
-import { CreateDoctor } from './createDoctor'
+// import { API_MESSAGES } from '../../../utils/messages'
+import { CreateOneDoctor } from './createOneDoctor'
 
 export class CreateDoctorController {
   constructor (
-    private createDoctor: CreateDoctor
+    private createOneDoctor: CreateOneDoctor
   ) {}
 
   async handler (request: Request, response: Response): Promise<Response> {
-    const data = request.body
-
     try {
-      await this.createDoctor.execute(data)
-      return response.status(200).send('Sucess')
+      const doctor = await this.createOneDoctor.execute(request.body)
+      return response.status(200).json(doctor)
     } catch (error) {
       return response.status(400).json({
         message: error.message || 'Unexpected Error'
