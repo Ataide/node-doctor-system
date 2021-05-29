@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express'
 import { createOneDoctorController } from './createOneDoctor'
-import { doctorDeleteAcrtion } from './doctorDeleteAction'
+import { deleteOneDoctorController } from './deleteOneDoctor'
 import { findOneDoctorController } from './findOneDoctor'
 import { listDoctorController } from './listAllDoctors'
 import { updateOneController } from './updateOneDoctor'
@@ -24,7 +24,7 @@ DoctorRoutes.put('/doctors/:id', (request, response) => {
 })
 
 DoctorRoutes.delete('/doctors/:id', (request, response) => {
-  return doctorDeleteAcrtion(request, response)
+  return deleteOneDoctorController.handler(request, response)
 })
 
 export { DoctorRoutes }

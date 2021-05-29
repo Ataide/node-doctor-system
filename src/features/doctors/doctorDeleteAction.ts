@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import { getRepository } from 'typeorm'
 import Doctor from '../../entities/Doctor'
 
-export async function doctorDeleteAcrtion (request: Request, response: Response):Promise<Response> {
+export async function doctorDeleteAction (request: Request, response: Response):Promise<Response> {
   try {
     const repository = getRepository(Doctor)
     const results = await repository.delete({ id: request.params.id })

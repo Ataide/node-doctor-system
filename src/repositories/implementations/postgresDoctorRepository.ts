@@ -1,9 +1,14 @@
-import { getRepository } from 'typeorm'
+import { DeleteResult, getRepository } from 'typeorm'
 import Doctor from '../../entities/Doctor'
 import Expertise from '../../entities/Expertise'
 import { IDoctorRepository } from '../IDoctorRepository'
 
 export class PostgresDoctorRepository implements IDoctorRepository {
+  async delete (id: number): Promise<DeleteResult> {
+    const repository = getRepository(Doctor)
+    return await repository.delete(id)
+  }
+
   async update (doctor: Doctor): Promise<Doctor> {
     const repository = getRepository(Doctor)
     return await repository.save(doctor)
