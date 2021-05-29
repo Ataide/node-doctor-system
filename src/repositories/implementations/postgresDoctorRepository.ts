@@ -4,14 +4,9 @@ import Expertise from '../../entities/Expertise'
 import { IDoctorRepository } from '../IDoctorRepository'
 
 export class PostgresDoctorRepository implements IDoctorRepository {
-  async getExpertiseByArrayName (names: string[]): Promise<Expertise[]> {
-    const expertiseRepository = getRepository(Expertise)
-    const array = []
-    for (const name of names) {
-      const expertise = await expertiseRepository.findOne({ where: { name: name } })
-      array.push(expertise)
-    }
-    return array
+  async update (doctor: Doctor): Promise<Doctor> {
+    const repository = getRepository(Doctor)
+    return await repository.save(doctor)
   }
 
   async list (): Promise<Doctor[]> {
@@ -31,5 +26,15 @@ export class PostgresDoctorRepository implements IDoctorRepository {
         where: { id },
         relations: ['expertises']
       })
+  }
+
+  async getExpertiseByArrayName (names: string[]): Promise<Expertise[]> {
+    const expertiseRepository = getRepository(Expertise)
+    const array = []
+    for (const name of names) {
+      const expertise = await expertiseRepository.findOne({ where: { name: name } })
+      array.push(expertise)
+    }
+    return array
   }
 }

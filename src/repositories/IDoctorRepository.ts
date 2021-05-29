@@ -5,6 +5,7 @@ export interface IDoctorRepository {
 
   list(): Promise<Doctor[]>
   create(doctor: Doctor): Promise<Doctor>
+  update(doctor: Doctor): Promise<Doctor>
   findOne(id: number): Promise<Doctor>
   getExpertiseByArrayName(names: string[]): Promise<Expertise[]>
 

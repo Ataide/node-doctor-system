@@ -1,7 +1,9 @@
 import { Request, Response, Router } from 'express'
 import { createOneDoctorController } from './createOneDoctor'
+import { doctorDeleteAcrtion } from './doctorDeleteAction'
 import { findOneDoctorController } from './findOneDoctor'
 import { listDoctorController } from './listAllDoctors'
+import { updateOneController } from './updateOneDoctor'
 
 const DoctorRoutes = Router()
 
@@ -17,16 +19,12 @@ DoctorRoutes.post('/doctors', (request: Request, response: Response) => {
   return createOneDoctorController.handler(request, response)
 })
 
-DoctorRoutes.put('/doctors', (request, response) => {
-  return response.json({
-    result: request.body
-  })
+DoctorRoutes.put('/doctors/:id', (request, response) => {
+  return updateOneController.handler(request, response)
 })
 
-DoctorRoutes.delete('/doctors', (request, response) => {
-  return response.json({
-    result: request.body
-  })
+DoctorRoutes.delete('/doctors/:id', (request, response) => {
+  return doctorDeleteAcrtion(request, response)
 })
 
 export { DoctorRoutes }

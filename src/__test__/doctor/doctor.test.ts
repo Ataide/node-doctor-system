@@ -14,7 +14,7 @@ describe('Doctor Feature', () => {
   })
 
   afterAll(async () => {
-    await connection.clear()
+    // await connection.clear()
     await connection.close()
   })
 
@@ -62,14 +62,14 @@ describe('Doctor Feature', () => {
       })
   })
 
-  test('GET: [ /doctor ]: should return a list of doctors', async () => {
+  test('GET: [ /doctors ]: should return a list of doctors', async () => {
     await request(app).get('/doctors').send().expect(200).then((response) => {
       expect(response.body[0]).toHaveProperty('expertises')
       expect(response.body[0].expertises.length).toBeGreaterThanOrEqual(2)
     })
   })
 
-  test('GET: [ /doctor/:id ]: should return a one doctors by id', async () => {
+  test('GET: [ /doctors/:id ]: should return a one doctors by id', async () => {
     const doctor = await getRepository(Doctor).find({ relations: ['expertises'] })
     await request(app).get(`/doctors/${doctor[0].id}`).send().expect(200).then((response) => {
       expect(response.body).toHaveProperty('expertises')
@@ -77,15 +77,13 @@ describe('Doctor Feature', () => {
     })
   })
 
-  test('PUT: [ /doctor/id ]: should return a updated doctor', async () => {
+  test('PUT: [ /doctors/id ]: should return a updated doctor', async () => {
     const doctor = await getRepository(Doctor).find({ relations: ['expertises'] })
-    doctor[0].name = 'Ozzy'
-
-    await request(app).put('/doctor')
-      .send(doctor[0])
-      .expect(200)
+    doctor[1].name = 'Ozzy'
+    await request(app).put(`/doctors/${doctor[1].id}`)
+      .send(doctor[1])
       .then((response) => {
-        expect(response.body).toBe(1)
+        expect(response.body.name).toBe('Ozzy')
       })
   })
 })
